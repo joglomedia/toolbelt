@@ -38,13 +38,13 @@ Here's an example:
     import queue
     from requests_toolbelt.threaded import pool
 
-    jobs = queue.Queue()
+    q = queue.Queue()
     urls = [
         # My list of URLs to get
     ]
 
     for url in urls:
-        queue.put({'method': 'GET', 'url': url})
+        q.put({'method': 'GET', 'url': url})
 
     p = pool.Pool(job_queue=q)
     p.join_all()
